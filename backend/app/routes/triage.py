@@ -17,6 +17,7 @@ from app.services.nlp_module import nlp_module
 from app.services.triage_engine import triage_engine
 from app.services.explanation_engine import explanation_engine
 from app.services.visual_mapper import visual_mapper
+from app.services.ml_classifier import ml_classifier
 from app.routes.auth import get_current_user
 
 router = APIRouter(prefix="/api/triage", tags=["Triage"])
@@ -253,6 +254,14 @@ def _process_triage(symptoms_text: str, duration: str = None, intensity: int = 5
         recommended_action=triage_result["recommended_action"],
         language=language
     )
+
+    disease_prediction = ml_classifier.predict(symptoms_text)
+    if disease_prediction:
+        if language == "ta":
+            patient_summary += f"\n\n**AI நோயறிதல் (ML Prediction):** {disease_prediction}"
+        else:
+            patient_summary += f"\n\n**AI Disease Prediction:** {disease_prediction}"
+        clinical_summary += f"\n\n**Symptom2Disease ML Index:** {disease_prediction}"
 
     # Step 4: Visual mapping
     affected_regions = visual_mapper.get_affected_regions(
