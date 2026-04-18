@@ -52,14 +52,14 @@ class ReportGenerator:
             spaceAfter=8
         ))
         self.styles.add(ParagraphStyle(
-            name='ReportBody',
+            name='CustomBodyText',
             parent=self.styles['Normal'],
             fontSize=10,
             textColor=colors.HexColor("#334155"),
             spaceAfter=4
         ))
         self.styles.add(ParagraphStyle(
-            name='ReportDisclaimer',
+            name='Disclaimer',
             parent=self.styles['Normal'],
             fontSize=8,
             textColor=colors.HexColor("#94A3B8"),
@@ -87,7 +87,7 @@ class ReportGenerator:
         story = []
 
         # ---- HEADER ----
-        story.append(Paragraph("TriageX Report", self.styles['ReportTitle']))
+        story.append(Paragraph("🧠 TriageX Report", self.styles['ReportTitle']))
         story.append(Paragraph("AI-Powered Medical Triage Assessment", self.styles['ReportSubtitle']))
         story.append(HRFlowable(width="100%", thickness=2, color=colors.HexColor("#2563EB")))
         story.append(Spacer(1, 12))
@@ -130,7 +130,7 @@ class ReportGenerator:
         ]
 
         if triage_data.get("is_emergency"):
-            assessment_data.append(["EMERGENCY:", "IMMEDIATE MEDICAL ATTENTION REQUIRED"])
+            assessment_data.append(["⚠️ EMERGENCY:", "IMMEDIATE MEDICAL ATTENTION REQUIRED"])
 
         assess_table = Table(assessment_data, colWidths=[140, 330])
         assess_table.setStyle(TableStyle([
@@ -150,16 +150,16 @@ class ReportGenerator:
         story.append(Paragraph("Symptoms Detected", self.styles['SectionHeader']))
         symptoms = triage_data.get("symptoms_extracted", [])
         for s in symptoms:
-            story.append(Paragraph(f"  {s.title()}", self.styles['ReportBody']))
+            story.append(Paragraph(f"• {s.title()}", self.styles['CustomBodyText']))
         story.append(Spacer(1, 8))
 
         # Duration & Intensity
         if triage_data.get("duration"):
-            story.append(Paragraph(f"<b>Duration:</b> {triage_data['duration']}", self.styles['ReportBody']))
+            story.append(Paragraph(f"<b>Duration:</b> {triage_data['duration']}", self.styles['CustomBodyText']))
         if triage_data.get("intensity"):
-            story.append(Paragraph(f"<b>Intensity:</b> {triage_data['intensity']}/10", self.styles['ReportBody']))
+            story.append(Paragraph(f"<b>Intensity:</b> {triage_data['intensity']}/10", self.styles['CustomBodyText']))
         if triage_data.get("medical_history"):
-            story.append(Paragraph(f"<b>Medical History:</b> {triage_data['medical_history']}", self.styles['ReportBody']))
+            story.append(Paragraph(f"<b>Medical History:</b> {triage_data['medical_history']}", self.styles['CustomBodyText']))
         story.append(Spacer(1, 12))
 
         # ---- AI REASONING ----
@@ -168,11 +168,11 @@ class ReportGenerator:
         if triggered_rules:
             for rule in triggered_rules:
                 rule_text = f"<b>[{rule.get('rule_id', 'R')}] {rule.get('rule_name', '')}:</b> {rule.get('description', '')}"
-                story.append(Paragraph(rule_text, self.styles['ReportBody']))
+                story.append(Paragraph(rule_text, self.styles['CustomBodyText']))
                 matched = ", ".join(rule.get("matched_symptoms", []))
-                story.append(Paragraph(f"  Matched: {matched} (Score: {rule.get('severity_contribution', 0)}/100)", self.styles['ReportBody']))
+                story.append(Paragraph(f"  → Matched: {matched} (Score: {rule.get('severity_contribution', 0)}/100)", self.styles['CustomBodyText']))
         else:
-            story.append(Paragraph("No specific clinical rules were triggered. Assessment based on general symptom analysis.", self.styles['ReportBody']))
+            story.append(Paragraph("No specific clinical rules were triggered. Assessment based on general symptom analysis.", self.styles['CustomBodyText']))
         story.append(Spacer(1, 12))
 
         # ---- AFFECTED BODY REGIONS ----
@@ -183,7 +183,7 @@ class ReportGenerator:
                 r_name = region.get("display_name", region.get("region", ""))
                 r_severity = region.get("severity", "")
                 r_symptoms = ", ".join(region.get("symptoms", []))
-                story.append(Paragraph(f"<b>{r_name}</b> ({r_severity}): {r_symptoms}", self.styles['ReportBody']))
+                story.append(Paragraph(f"• <b>{r_name}</b> ({r_severity}): {r_symptoms}", self.styles['CustomBodyText']))
             story.append(Spacer(1, 12))
 
         # ---- PATIENT SUMMARY ----
@@ -192,10 +192,7 @@ class ReportGenerator:
             story.append(Paragraph("Patient-Friendly Summary", self.styles['SectionHeader']))
             for line in patient_summary.split("\n"):
                 if line.strip():
-                    # Strip emoji characters for PDF compatibility
-                    clean_line = line.encode('ascii', 'ignore').decode('ascii').strip()
-                    if clean_line:
-                        story.append(Paragraph(clean_line, self.styles['ReportBody']))
+                    story.append(Paragraph(line, self.styles['CustomBodyText']))
             story.append(Spacer(1, 12))
 
         # ---- DISCLAIMER ----
@@ -203,7 +200,7 @@ class ReportGenerator:
         story.append(Paragraph(
             "DISCLAIMER: TriageX is an AI-assisted pre-triage tool and is NOT a substitute for professional medical diagnosis. "
             "Always consult a qualified healthcare provider. This report is auto-generated and should be reviewed by clinical staff.",
-            self.styles['ReportDisclaimer']
+            self.styles['Disclaimer']
         ))
 
         # Build PDF

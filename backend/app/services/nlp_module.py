@@ -6,6 +6,7 @@ and synonym resolution. Works fully offline.
 import json
 import os
 import re
+import difflib
 from typing import List, Dict, Tuple
 
 from app.config import settings
@@ -36,41 +37,34 @@ class NLPModule:
 
     def extract_symptoms(self, text: str) -> List[str]:
         """
-        Extract symptom keywords from natural language text.
-        Returns a list of matched symptom keywords.
+        Extract symptom keywords from natural language text using fuzzy matching.
         """
         normalized = self.normalize_text(text)
         found_symptoms = []
-
+        
         # Collect all keywords from all categories
         all_keywords = []
         for cat_name, cat_data in self.categories.items():
             for keyword in cat_data["keywords"]:
-                all_keywords.append((keyword, cat_name))
+                all_keywords.append(keyword)
 
-        # Sort by keyword length (longest first) to match multi-word symptoms first
-        all_keywords.sort(key=lambda x: len(x[0]), reverse=True)
+        # Sort by keyword length (longest first)
+        all_keywords.sort(key=lambda x: len(x), reverse=True)
 
-        # Track what we've already matched to avoid duplicates
-        matched_positions = set()
+        remaining_text = normalized
 
-        for keyword, category in all_keywords:
-            # Use word boundary matching for single words, substring for multi-word
-            if " " in keyword:
-                idx = normalized.find(keyword)
-                if idx != -1:
-                    positions = set(range(idx, idx + len(keyword)))
-                    if not positions & matched_positions:
-                        found_symptoms.append(keyword)
-                        matched_positions.update(positions)
-            else:
-                pattern = r'\b' + re.escape(keyword) + r'\b'
-                match = re.search(pattern, normalized)
-                if match:
-                    positions = set(range(match.start(), match.end()))
-                    if not positions & matched_positions:
-                        found_symptoms.append(keyword)
-                        matched_positions.update(positions)
+        # 1. Substring matching for phrases/keywords
+        for keyword in all_keywords:
+            if len(keyword) > 3 and keyword in remaining_text:
+                found_symptoms.append(keyword)
+                remaining_text = remaining_text.replace(keyword, " " * len(keyword))
+
+        # 2. Token-based fuzzy matching
+        remaining_words = [w for w in remaining_text.split() if len(w) > 3]
+        for word in remaining_words:
+            matches = difflib.get_close_matches(word, all_keywords, n=1, cutoff=0.85)
+            if matches:
+                found_symptoms.append(matches[0])
 
         return list(set(found_symptoms))
 

@@ -2,31 +2,34 @@
 
 @layer base {
   :root {
-    --primary: #2563EB;
-    --primary-dark: #1D4ED8;
-    --primary-light: #3B82F6;
-    --secondary: #0F172A;
-    --accent: #6366F1;
-    --success: #22C55E;
-    --warning: #EAB308;
-    --danger: #EF4444;
-    --bg-light: #F8FAFC;
-    --bg-card: #FFFFFF;
-    --text-primary: #0F172A;
-    --text-secondary: #64748B;
-    --text-muted: #94A3B8;
-    --border: #E2E8F0;
-    --gradient-start: #2563EB;
-    --gradient-end: #6366F1;
-  }
-
-  .dark {
-    --bg-light: #0B1120;
-    --bg-card: #1E293B;
-    --text-primary: #F1F5F9;
+    /* Base futuristic dark palette */
+    --primary: #00E5FF;
+    --primary-dark: #00B3CC;
+    --primary-light: #4DFFFF;
+    --secondary: #0A0A0A;
+    --accent: #B026FF;
+    --success: #00FF9D;
+    --warning: #FFD000;
+    --danger: #FF0055;
+    
+    --bg-light: #050505;
+    --bg-card: rgba(12, 12, 14, 0.6);
+    --text-primary: #F0F4F8;
     --text-secondary: #94A3B8;
-    --text-muted: #64748B;
-    --border: #334155;
+    --text-muted: #475569;
+    --border: rgba(0, 229, 255, 0.15);
+    
+    --gradient-start: #00E5FF;
+    --gradient-end: #B026FF;
+  }
+  .dark {
+    /* Kept for compatibility but same variables applied as default now */
+    --bg-light: #050505;
+    --bg-card: rgba(12, 12, 14, 0.6);
+    --text-primary: #F0F4F8;
+    --text-secondary: #94A3B8;
+    --text-muted: #475569;
+    --border: rgba(0, 229, 255, 0.15);
   }
 }
 
@@ -63,18 +66,22 @@
 
 @layer components {
   .glass-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .glass-card:hover {
+    box-shadow: 0 0 32px rgba(0, 229, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 229, 255, 0.3);
   }
 
   .dark .glass-card {
-    background: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
   }
 
   .gradient-text {
@@ -89,20 +96,21 @@
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, #2563EB, #6366F1);
-    color: white;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: #050505;
     padding: 12px 28px;
     border-radius: 12px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 15px;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.4);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
   }
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.6);
   }
 
   .btn-secondary {
@@ -127,24 +135,26 @@
   .severity-high { color: var(--danger); }
 
   .severity-badge {
-    padding: 4px 14px;
+    padding: 6px 14px;
     border-radius: 20px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: inset 0 0 0 1px currentColor;
+    background: rgba(0,0,0,0.4);
   }
   .severity-badge.low {
-    background: rgba(34,197,94,0.12);
-    color: #16A34A;
+    color: var(--success);
+    text-shadow: 0 0 8px var(--success);
   }
   .severity-badge.medium {
-    background: rgba(234,179,8,0.12);
-    color: #CA8A04;
+    color: var(--warning);
+    text-shadow: 0 0 8px var(--warning);
   }
   .severity-badge.high {
-    background: rgba(239,68,68,0.12);
-    color: #DC2626;
+    color: var(--danger);
+    text-shadow: 0 0 8px var(--danger);
   }
 
   .pulse-dot {
@@ -172,19 +182,21 @@
     white-space: pre-line;
   }
   .chat-bubble.user {
-    background: linear-gradient(135deg, #2563EB, #6366F1);
-    color: white;
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(176, 38, 255, 0.2));
+    color: #00E5FF;
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.1);
     border-bottom-right-radius: 4px;
     margin-left: auto;
   }
   .chat-bubble.assistant {
-    background: var(--bg-card);
+    background: rgba(255,255,255,0.02);
     color: var(--text-primary);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255,255,255,0.1);
     border-bottom-left-radius: 4px;
   }
   .dark .chat-bubble.assistant {
-    background: #1E293B;
-    border-color: #334155;
+    background: rgba(255,255,255,0.02);
+    border-color: rgba(255,255,255,0.1);
   }
 }
