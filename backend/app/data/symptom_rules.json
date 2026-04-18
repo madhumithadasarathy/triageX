@@ -1,0 +1,329 @@
+{
+  "rules": [
+    {
+      "id": "R001",
+      "name": "Chest Pain + Breathing Difficulty",
+      "description": "Chest pain combined with difficulty breathing may indicate cardiac or pulmonary emergency",
+      "conditions": {
+        "symptoms_any": ["chest pain", "chest tightness", "chest pressure"],
+        "symptoms_and": ["breathing difficulty", "shortness of breath", "difficulty breathing"]
+      },
+      "severity": "HIGH",
+      "score_contribution": 85,
+      "action": "emergency",
+      "emergency": true
+    },
+    {
+      "id": "R002",
+      "name": "Chest Pain + Fever",
+      "description": "Chest pain accompanied by fever could indicate infection or inflammation",
+      "conditions": {
+        "symptoms_any": ["chest pain", "chest tightness"],
+        "symptoms_and": ["fever", "high temperature"]
+      },
+      "severity": "HIGH",
+      "score_contribution": 75,
+      "action": "emergency",
+      "emergency": true
+    },
+    {
+      "id": "R003",
+      "name": "Severe Headache + Vision Changes",
+      "description": "Sudden severe headache with vision changes may indicate neurological emergency",
+      "conditions": {
+        "symptoms_any": ["severe headache", "worst headache", "sudden headache", "thunderclap headache"],
+        "symptoms_and": ["vision changes", "blurred vision", "vision loss", "double vision"]
+      },
+      "severity": "HIGH",
+      "score_contribution": 80,
+      "action": "emergency",
+      "emergency": true
+    },
+    {
+      "id": "R004",
+      "name": "High Fever + Confusion",
+      "description": "High fever with altered mental status requires immediate evaluation",
+      "conditions": {
+        "symptoms_any": ["high fever", "very high temperature"],
+        "symptoms_and": ["confusion", "disoriented", "altered consciousness", "drowsy"]
+      },
+      "severity": "HIGH",
+      "score_contribution": 85,
+      "action": "emergency",
+      "emergency": true
+    },
+    {
+      "id": "R005",
+      "name": "Severe Abdominal Pain",
+      "description": "Severe or sudden abdominal pain may indicate surgical emergency",
+      "conditions": {
+        "symptoms_any": ["severe abdominal pain", "severe stomach pain", "sudden abdominal pain", "sharp abdominal pain"]
+      },
+      "severity": "HIGH",
+      "score_contribution": 70,
+      "action": "emergency",
+      "emergency": false
+    },
+    {
+      "id": "R006",
+      "name": "Chest Pain (Isolated)",
+      "description": "Chest pain without other critical symptoms still requires medical evaluation",
+      "conditions": {
+        "symptoms_any": ["chest pain", "chest tightness", "chest pressure", "chest discomfort"]
+      },
+      "severity": "HIGH",
+      "score_contribution": 65,
+      "action": "consult-doctor",
+      "emergency": false
+    },
+    {
+      "id": "R007",
+      "name": "Breathing Difficulty",
+      "description": "Difficulty breathing requires prompt medical attention",
+      "conditions": {
+        "symptoms_any": ["breathing difficulty", "shortness of breath", "difficulty breathing", "wheezing", "gasping"]
+      },
+      "severity": "HIGH",
+      "score_contribution": 70,
+      "action": "consult-doctor",
+      "emergency": false
+    },
+    {
+      "id": "R008",
+      "name": "Fever + Rash",
+      "description": "Fever with rash could indicate infectious disease",
+      "conditions": {
+        "symptoms_any": ["fever", "high temperature"],
+        "symptoms_and": ["rash", "skin rash", "spots"]
+      },
+      "severity": "MEDIUM",
+      "score_contribution": 55,
+      "action": "consult-doctor",
+      "emergency": false
+    },
+    {
+      "id": "R009",
+      "name": "Persistent Fever",
+      "description": "Ongoing fever suggests active infection requiring evaluation",
+      "conditions": {
+        "symptoms_any": ["fever", "high temperature", "persistent fever", "ongoing fever"]
+      },
+      "severity": "MEDIUM",
+      "score_contribution": 45,
+      "action": "consult-doctor",
+      "emergency": false
+    },
+    {
+      "id": "R010",
+      "name": "Sore Throat + Fever",
+      "description": "Sore throat with fever may indicate bacterial infection",
+      "conditions": {
+        "symptoms_any": ["sore throat", "throat pain"],
+        "symptoms_and": ["fever", "high temperature"]
+      },
+      "severity": "MEDIUM",
+      "score_contribution": 45,
+      "action": "consult-doctor",
+      "emergency": false
+    },
+    {
+      "id": "R011",
+      "name": "Persistent Cough",
+      "description": "Ongoing cough lasting more than a week should be evaluated",
+      "conditions": {
+        "symptoms_any": ["persistent cough", "chronic cough", "cough with blood", "cough lasting weeks"]
+      },
+      "severity": "MEDIUM",
+      "score_contribution": 40,
+      "action": "consult-doctor",
+      "emergency": false
+    },
+    {
+      "id": "R012",
+      "name": "Moderate Headache",
+      "description": "Headache without emergency features",
+      "conditions": {
+        "symptoms_any": ["headache", "head pain", "migraine"]
+      },
+      "severity": "MEDIUM",
+      "score_contribution": 30,
+      "action": "consult-doctor",
+      "emergency": false
+    },
+    {
+      "id": "R013",
+      "name": "Nausea + Vomiting",
+      "description": "Nausea and vomiting may need evaluation if persistent",
+      "conditions": {
+        "symptoms_any": ["nausea", "vomiting", "throwing up"]
+      },
+      "severity": "MEDIUM",
+      "score_contribution": 35,
+      "action": "consult-doctor",
+      "emergency": false
+    },
+    {
+      "id": "R014",
+      "name": "Joint Pain + Swelling",
+      "description": "Joint symptoms could indicate inflammation or injury",
+      "conditions": {
+        "symptoms_any": ["joint pain", "joint swelling", "swollen joint"],
+        "symptoms_and": ["swelling", "inflammation"]
+      },
+      "severity": "MEDIUM",
+      "score_contribution": 40,
+      "action": "consult-doctor",
+      "emergency": false
+    },
+    {
+      "id": "R015",
+      "name": "Mild Headache",
+      "description": "Occasional mild headache usually manageable with self-care",
+      "conditions": {
+        "symptoms_any": ["mild headache", "slight headache", "light headache"]
+      },
+      "severity": "LOW",
+      "score_contribution": 15,
+      "action": "self-care",
+      "emergency": false
+    },
+    {
+      "id": "R016",
+      "name": "Common Cold Symptoms",
+      "description": "Runny nose, sneezing, mild congestion typical of common cold",
+      "conditions": {
+        "symptoms_any": ["runny nose", "sneezing", "congestion", "stuffy nose", "cold symptoms"]
+      },
+      "severity": "LOW",
+      "score_contribution": 15,
+      "action": "self-care",
+      "emergency": false
+    },
+    {
+      "id": "R017",
+      "name": "Mild Sore Throat",
+      "description": "Sore throat without fever or other complications",
+      "conditions": {
+        "symptoms_any": ["sore throat", "scratchy throat", "throat irritation"]
+      },
+      "severity": "LOW",
+      "score_contribution": 20,
+      "action": "self-care",
+      "emergency": false
+    },
+    {
+      "id": "R018",
+      "name": "Mild Stomach Discomfort",
+      "description": "Mild stomach ache or indigestion",
+      "conditions": {
+        "symptoms_any": ["stomach ache", "indigestion", "mild stomach pain", "bloating", "gas"]
+      },
+      "severity": "LOW",
+      "score_contribution": 15,
+      "action": "self-care",
+      "emergency": false
+    },
+    {
+      "id": "R019",
+      "name": "Muscle Soreness",
+      "description": "General muscle aches and soreness",
+      "conditions": {
+        "symptoms_any": ["muscle pain", "body ache", "muscle soreness", "sore muscles"]
+      },
+      "severity": "LOW",
+      "score_contribution": 15,
+      "action": "self-care",
+      "emergency": false
+    },
+    {
+      "id": "R020",
+      "name": "Fatigue",
+      "description": "General tiredness and fatigue",
+      "conditions": {
+        "symptoms_any": ["fatigue", "tiredness", "exhaustion", "feeling tired", "low energy"]
+      },
+      "severity": "LOW",
+      "score_contribution": 15,
+      "action": "self-care",
+      "emergency": false
+    },
+    {
+      "id": "R021",
+      "name": "Dizziness + Fainting",
+      "description": "Dizziness with fainting spells needs evaluation",
+      "conditions": {
+        "symptoms_any": ["dizziness", "dizzy"],
+        "symptoms_and": ["fainting", "fainted", "loss of consciousness"]
+      },
+      "severity": "HIGH",
+      "score_contribution": 65,
+      "action": "emergency",
+      "emergency": true
+    },
+    {
+      "id": "R022",
+      "name": "Allergic Reaction Symptoms",
+      "description": "Symptoms of potential allergic reaction",
+      "conditions": {
+        "symptoms_any": ["swelling face", "swollen lips", "difficulty swallowing", "hives all over", "throat swelling"]
+      },
+      "severity": "HIGH",
+      "score_contribution": 80,
+      "action": "emergency",
+      "emergency": true
+    },
+    {
+      "id": "R023",
+      "name": "Back Pain",
+      "description": "Back pain without neurological symptoms",
+      "conditions": {
+        "symptoms_any": ["back pain", "lower back pain", "upper back pain", "backache"]
+      },
+      "severity": "LOW",
+      "score_contribution": 20,
+      "action": "self-care",
+      "emergency": false
+    },
+    {
+      "id": "R024",
+      "name": "Skin Issues",
+      "description": "Minor skin-related issues",
+      "conditions": {
+        "symptoms_any": ["rash", "itching", "skin irritation", "dry skin", "eczema"]
+      },
+      "severity": "LOW",
+      "score_contribution": 15,
+      "action": "self-care",
+      "emergency": false
+    },
+    {
+      "id": "R025",
+      "name": "Eye Problems",
+      "description": "Eye discomfort or minor issues",
+      "conditions": {
+        "symptoms_any": ["eye pain", "red eyes", "itchy eyes", "watery eyes", "eye irritation"]
+      },
+      "severity": "LOW",
+      "score_contribution": 20,
+      "action": "consult-doctor",
+      "emergency": false
+    }
+  ],
+  "intensity_multipliers": {
+    "1": 0.3,
+    "2": 0.4,
+    "3": 0.5,
+    "4": 0.6,
+    "5": 0.7,
+    "6": 0.8,
+    "7": 0.9,
+    "8": 1.0,
+    "9": 1.1,
+    "10": 1.2
+  },
+  "urgency_thresholds": {
+    "LOW": [0, 30],
+    "MEDIUM": [31, 60],
+    "HIGH": [61, 100]
+  }
+}

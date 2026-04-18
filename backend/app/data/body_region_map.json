@@ -1,0 +1,111 @@
+{
+  "body_regions": {
+    "head": {
+      "display_name": "Head",
+      "svg_id": "region-head",
+      "symptoms": ["headache", "migraine", "dizziness", "confusion", "vision changes", "blurred vision", "ear pain", "eye pain", "sore throat", "throat pain", "toothache", "jaw pain", "sinus pain"]
+    },
+    "chest": {
+      "display_name": "Chest",
+      "svg_id": "region-chest",
+      "symptoms": ["chest pain", "chest tightness", "chest pressure", "breathing difficulty", "shortness of breath", "cough", "wheezing", "palpitations", "heart racing"]
+    },
+    "abdomen": {
+      "display_name": "Abdomen",
+      "svg_id": "region-abdomen",
+      "symptoms": ["stomach pain", "abdominal pain", "nausea", "vomiting", "diarrhea", "constipation", "bloating", "cramps", "indigestion", "acid reflux"]
+    },
+    "left_arm": {
+      "display_name": "Left Arm",
+      "svg_id": "region-left-arm",
+      "symptoms": ["left arm pain", "left arm numbness", "left arm tingling", "left shoulder pain", "left elbow pain", "left wrist pain"]
+    },
+    "right_arm": {
+      "display_name": "Right Arm",
+      "svg_id": "region-right-arm",
+      "symptoms": ["right arm pain", "right arm numbness", "right shoulder pain", "right elbow pain", "right wrist pain", "arm pain", "shoulder pain"]
+    },
+    "left_leg": {
+      "display_name": "Left Leg",
+      "svg_id": "region-left-leg",
+      "symptoms": ["left leg pain", "left knee pain", "left ankle pain", "left foot pain", "leg cramps", "leg pain"]
+    },
+    "right_leg": {
+      "display_name": "Right Leg",
+      "svg_id": "region-right-leg",
+      "symptoms": ["right leg pain", "right knee pain", "right ankle pain", "right foot pain", "knee pain", "hip pain"]
+    },
+    "back": {
+      "display_name": "Back",
+      "svg_id": "region-back",
+      "symptoms": ["back pain", "lower back pain", "upper back pain", "spine pain", "neck pain", "backache"]
+    },
+    "full_body": {
+      "display_name": "Full Body",
+      "svg_id": "region-full-body",
+      "symptoms": ["fever", "fatigue", "body ache", "chills", "weakness", "weight loss", "night sweats", "rash", "itching", "swelling"]
+    }
+  },
+  "condition_images": {
+    "sore throat": {
+      "image": "throat_inflammation.svg",
+      "label": "Throat Inflammation",
+      "description": "Inflammation of the pharynx causing sore throat"
+    },
+    "headache": {
+      "image": "headache.svg",
+      "label": "Headache",
+      "description": "Pain or pressure in the head region"
+    },
+    "stomach pain": {
+      "image": "stomach_highlight.svg",
+      "label": "Stomach Pain",
+      "description": "Pain or discomfort in the stomach area"
+    },
+    "chest pain": {
+      "image": "chest_pain.svg",
+      "label": "Chest Pain",
+      "description": "Pain or tightness in the chest region"
+    },
+    "back pain": {
+      "image": "back_pain.svg",
+      "label": "Back Pain",
+      "description": "Pain in the back or spine area"
+    },
+    "joint pain": {
+      "image": "joint_pain.svg",
+      "label": "Joint Pain",
+      "description": "Pain or swelling in one or more joints"
+    },
+    "cough": {
+      "image": "respiratory.svg",
+      "label": "Respiratory Issue",
+      "description": "Cough and respiratory tract irritation"
+    },
+    "fever": {
+      "image": "fever.svg",
+      "label": "Fever",
+      "description": "Elevated body temperature indicating immune response"
+    },
+    "rash": {
+      "image": "skin_rash.svg",
+      "label": "Skin Rash",
+      "description": "Skin irritation with visible changes"
+    },
+    "eye pain": {
+      "image": "eye_issue.svg",
+      "label": "Eye Problem",
+      "description": "Pain or irritation in the eye area"
+    },
+    "dizziness": {
+      "image": "dizziness.svg",
+      "label": "Dizziness",
+      "description": "Sensation of spinning or loss of balance"
+    },
+    "nausea": {
+      "image": "nausea.svg",
+      "label": "Nausea",
+      "description": "Feeling of sickness with urge to vomit"
+    }
+  }
+}

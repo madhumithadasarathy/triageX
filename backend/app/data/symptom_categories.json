@@ -1,0 +1,82 @@
+{
+  "categories": {
+    "respiratory": {
+      "keywords": ["cough", "breathing", "shortness of breath", "wheezing", "congestion", "stuffy nose", "runny nose", "sneezing", "difficulty breathing", "gasping", "phlegm", "mucus", "sinus"],
+      "body_region": "chest",
+      "display_name": "Respiratory"
+    },
+    "cardiac": {
+      "keywords": ["chest pain", "chest tightness", "chest pressure", "heart racing", "palpitations", "irregular heartbeat", "chest discomfort"],
+      "body_region": "chest",
+      "display_name": "Cardiac"
+    },
+    "neurological": {
+      "keywords": ["headache", "migraine", "dizziness", "dizzy", "fainting", "seizure", "numbness", "tingling", "confusion", "memory loss", "vision changes", "blurred vision"],
+      "body_region": "head",
+      "display_name": "Neurological"
+    },
+    "gastrointestinal": {
+      "keywords": ["stomach pain", "stomach ache", "nausea", "vomiting", "diarrhea", "constipation", "bloating", "indigestion", "abdominal pain", "cramps", "acid reflux", "heartburn", "gas"],
+      "body_region": "abdomen",
+      "display_name": "Gastrointestinal"
+    },
+    "musculoskeletal": {
+      "keywords": ["back pain", "joint pain", "muscle pain", "muscle soreness", "body ache", "stiffness", "swelling", "sprain", "strain", "knee pain", "shoulder pain", "neck pain", "hip pain"],
+      "body_region": "limbs",
+      "display_name": "Musculoskeletal"
+    },
+    "dermatological": {
+      "keywords": ["rash", "itching", "skin irritation", "hives", "eczema", "acne", "dry skin", "blisters", "burns", "bruising", "swelling"],
+      "body_region": "skin",
+      "display_name": "Dermatological"
+    },
+    "ent": {
+      "keywords": ["sore throat", "throat pain", "ear pain", "ear infection", "tinnitus", "hearing loss", "nose bleed", "throat irritation", "difficulty swallowing"],
+      "body_region": "head",
+      "display_name": "ENT (Ear, Nose, Throat)"
+    },
+    "ophthalmological": {
+      "keywords": ["eye pain", "red eyes", "itchy eyes", "watery eyes", "vision loss", "double vision", "eye irritation", "light sensitivity"],
+      "body_region": "head",
+      "display_name": "Ophthalmological"
+    },
+    "systemic": {
+      "keywords": ["fever", "high temperature", "chills", "fatigue", "tiredness", "weakness", "weight loss", "night sweats", "loss of appetite", "dehydration", "malaise"],
+      "body_region": "full_body",
+      "display_name": "Systemic"
+    },
+    "psychological": {
+      "keywords": ["anxiety", "depression", "insomnia", "stress", "panic", "mood changes", "irritability", "difficulty concentrating"],
+      "body_region": "head",
+      "display_name": "Psychological"
+    }
+  },
+  "symptom_synonyms": {
+    "tummy ache": "stomach pain",
+    "belly ache": "abdominal pain",
+    "throwing up": "vomiting",
+    "can't breathe": "difficulty breathing",
+    "hard to breathe": "difficulty breathing",
+    "running nose": "runny nose",
+    "head hurts": "headache",
+    "feeling sick": "nausea",
+    "high temp": "fever",
+    "temperature": "fever",
+    "sore body": "body ache",
+    "achy": "body ache",
+    "puking": "vomiting",
+    "lightheaded": "dizziness",
+    "feverish": "fever",
+    "scratchy throat": "sore throat",
+    "loose motion": "diarrhea",
+    "loose stools": "diarrhea",
+    "cold": "cold symptoms",
+    "flu": "flu symptoms",
+    "back hurts": "back pain",
+    "stomach hurts": "stomach pain",
+    "chest hurts": "chest pain",
+    "eyes hurt": "eye pain",
+    "ears hurt": "ear pain",
+    "throat hurts": "sore throat"
+  }
+}

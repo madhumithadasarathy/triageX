@@ -1,0 +1,92 @@
+{
+  "app": {
+    "name": "TriageX",
+    "tagline": "Explain. Assess. Act.",
+    "disclaimer": "TriageX is not a diagnostic tool. Always consult a medical professional for proper diagnosis and treatment.",
+    "emergency_alert": "⚠️ CRITICAL: Based on your symptoms, please seek immediate medical attention or call emergency services."
+  },
+  "nav": {
+    "home": "Home",
+    "chat": "Start Triage",
+    "results": "Results",
+    "admin": "Dashboard",
+    "login": "Login",
+    "logout": "Logout",
+    "report": "Report"
+  },
+  "landing": {
+    "hero_title": "AI-Powered Medical Triage",
+    "hero_subtitle": "Intelligent symptom assessment with visual explanations. Get instant severity evaluation and personalized guidance.",
+    "cta_button": "Start Assessment",
+    "feature1_title": "Smart Symptom Analysis",
+    "feature1_desc": "Advanced NLP-powered symptom extraction and categorization",
+    "feature2_title": "Visual Body Mapping",
+    "feature2_desc": "Interactive body diagrams highlighting affected areas",
+    "feature3_title": "Explainable AI",
+    "feature3_desc": "Transparent reasoning for every triage decision",
+    "feature4_title": "Doctor Reports",
+    "feature4_desc": "Generate structured clinical reports instantly"
+  },
+  "chat": {
+    "welcome": "Hello! I'm your TriageX assistant. I'll help assess your symptoms. Let's start — what symptoms are you experiencing?",
+    "ask_duration": "How long have you been experiencing these symptoms?",
+    "ask_intensity": "On a scale of 1-10, how intense are your symptoms? (1 = very mild, 10 = extremely severe)",
+    "ask_history": "Do you have any relevant medical history? (e.g., chronic conditions, allergies, current medications). Type 'none' if not.",
+    "processing": "Analyzing your symptoms...",
+    "complete": "Thank you! I've completed the assessment. View your results below.",
+    "placeholder": "Describe your symptoms...",
+    "send": "Send",
+    "voice_input": "Voice Input"
+  },
+  "results": {
+    "title": "Triage Results",
+    "severity_score": "Severity Score",
+    "urgency_level": "Urgency Level",
+    "recommended_action": "Recommended Action",
+    "symptoms_detected": "Symptoms Detected",
+    "affected_areas": "Affected Body Areas",
+    "reasoning": "AI Reasoning",
+    "clinical_summary": "Clinical Summary",
+    "patient_summary": "Patient-Friendly Summary",
+    "download_report": "Download Report (PDF)",
+    "new_assessment": "New Assessment",
+    "actions": {
+      "self-care": "Self-Care at Home",
+      "consult-doctor": "Consult a Doctor",
+      "emergency": "Seek Emergency Care"
+    },
+    "urgency": {
+      "LOW": "Low",
+      "MEDIUM": "Medium",
+      "HIGH": "High"
+    }
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "total_cases": "Total Cases",
+    "high_severity": "High Severity",
+    "medium_severity": "Medium Severity",
+    "low_severity": "Low Severity",
+    "emergencies": "Emergencies",
+    "recent_cases": "Recent Cases",
+    "search_placeholder": "Search cases...",
+    "filter_all": "All",
+    "filter_high": "High",
+    "filter_medium": "Medium",
+    "filter_low": "Low",
+    "view_details": "View Details",
+    "no_cases": "No triage cases found."
+  },
+  "auth": {
+    "login_title": "Sign In",
+    "register_title": "Create Account",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "full_name": "Full Name",
+    "login_button": "Sign In",
+    "register_button": "Create Account",
+    "switch_to_register": "Don't have an account? Sign up",
+    "switch_to_login": "Already have an account? Sign in"
+  }
+}
