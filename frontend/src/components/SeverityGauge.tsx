@@ -21,9 +21,9 @@ export default function SeverityGauge({ score, urgencyLevel, size = 220 }: Sever
   const progress = (animatedScore / 100) * circumference;
 
   const getColor = () => {
-    if (animatedScore >= 61) return "#EF4444";
-    if (animatedScore >= 31) return "#EAB308";
-    return "#22C55E";
+    if (animatedScore >= 61) return "#FFFFFF";
+    if (animatedScore >= 31) return "#CCCCCC";
+    return "#888888";
   };
 
   const getGradientId = () => {
@@ -52,16 +52,16 @@ export default function SeverityGauge({ score, urgencyLevel, size = 220 }: Sever
       <svg width={size} height={size * 0.65} viewBox={`0 0 ${size} ${size * 0.65}`}>
         <defs>
           <linearGradient id="gaugeGradientLow" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#22C55E" />
-            <stop offset="100%" stopColor="#4ADE80" />
+            <stop offset="0%" stopColor="#888888" />
+            <stop offset="100%" stopColor="#AAAAAA" />
           </linearGradient>
           <linearGradient id="gaugeGradientMedium" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#EAB308" />
-            <stop offset="100%" stopColor="#FACC15" />
+            <stop offset="0%" stopColor="#AAAAAA" />
+            <stop offset="100%" stopColor="#CCCCCC" />
           </linearGradient>
           <linearGradient id="gaugeGradientHigh" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#EF4444" />
-            <stop offset="100%" stopColor="#F87171" />
+            <stop offset="0%" stopColor="#CCCCCC" />
+            <stop offset="100%" stopColor="#FFFFFF" />
           </linearGradient>
           <filter id="gaugeGlow">
             <feGaussianBlur stdDeviation="3" result="coloredBlur" />

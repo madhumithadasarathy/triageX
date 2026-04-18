@@ -45,9 +45,9 @@ class VisualMapper:
         # Build affected regions list
         affected = []
         severity_colors = {
-            "LOW": "#22C55E",     # Green
-            "MEDIUM": "#EAB308",  # Yellow
-            "HIGH": "#EF4444"     # Red
+            "LOW": "#888888",     # Dark grey
+            "MEDIUM": "#CCCCCC",  # Light grey
+            "HIGH": "#FFFFFF"     # White
         }
 
         for region_key, matched_symptoms in region_symptoms.items():

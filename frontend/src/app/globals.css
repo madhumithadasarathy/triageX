@@ -2,34 +2,33 @@
 
 @layer base {
   :root {
-    /* Base futuristic dark palette */
-    --primary: #00E5FF;
-    --primary-dark: #00B3CC;
-    --primary-light: #4DFFFF;
-    --secondary: #0A0A0A;
-    --accent: #B026FF;
-    --success: #00FF9D;
-    --warning: #FFD000;
-    --danger: #FF0055;
+    /* Base strict black and white palette */
+    --primary: #FFFFFF;
+    --primary-dark: #CCCCCC;
+    --primary-light: #F0F0F0;
+    --secondary: #000000;
+    --accent: #FFFFFF;
+    --success: #FFFFFF;
+    --warning: #AAAAAA;
+    --danger: #FFFFFF;
     
-    --bg-light: #050505;
-    --bg-card: rgba(12, 12, 14, 0.6);
-    --text-primary: #F0F4F8;
-    --text-secondary: #94A3B8;
-    --text-muted: #475569;
-    --border: rgba(0, 229, 255, 0.15);
+    --bg-light: #000000;
+    --bg-card: #0A0A0A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #CCCCCC;
+    --text-muted: #888888;
+    --border: #333333;
     
-    --gradient-start: #00E5FF;
-    --gradient-end: #B026FF;
+    --gradient-start: #FFFFFF;
+    --gradient-end: #E5E5E5;
   }
   .dark {
-    /* Kept for compatibility but same variables applied as default now */
-    --bg-light: #050505;
-    --bg-card: rgba(12, 12, 14, 0.6);
-    --text-primary: #F0F4F8;
-    --text-secondary: #94A3B8;
-    --text-muted: #475569;
-    --border: rgba(0, 229, 255, 0.15);
+    --bg-light: #000000;
+    --bg-card: #0A0A0A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #CCCCCC;
+    --text-muted: #888888;
+    --border: #333333;
   }
 }
 
@@ -46,6 +45,7 @@
     color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
+    filter: grayscale(100%) contrast(1.1);
   }
 
   /* Custom scrollbar */
@@ -71,12 +71,12 @@
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: 16px;
-    box-shadow: 0 0 24px rgba(0, 229, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.05);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
   .glass-card:hover {
-    box-shadow: 0 0 32px rgba(0, 229, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-    border-color: rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 32px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
   }
 
   .dark .glass-card {
@@ -85,32 +85,29 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #FFFFFF;
   }
 
   .gradient-bg {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    background: #FFFFFF;
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    color: #050505;
+    background: #FFFFFF;
+    color: #000000;
     padding: 12px 28px;
     border-radius: 12px;
     font-weight: 700;
     font-size: 15px;
-    border: none;
+    border: 1px solid #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 16px rgba(0, 229, 255, 0.4);
-    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
   }
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 24px rgba(0, 229, 255, 0.6);
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.4);
+    background: #E5E5E5;
   }
 
   .btn-secondary {
@@ -145,16 +142,14 @@
     background: rgba(0,0,0,0.4);
   }
   .severity-badge.low {
-    color: var(--success);
-    text-shadow: 0 0 8px var(--success);
+    color: #FFFFFF;
   }
   .severity-badge.medium {
-    color: var(--warning);
-    text-shadow: 0 0 8px var(--warning);
+    color: #AAAAAA;
   }
   .severity-badge.high {
-    color: var(--danger);
-    text-shadow: 0 0 8px var(--danger);
+    color: #FFFFFF;
+    background: #333333;
   }
 
   .pulse-dot {
@@ -182,10 +177,9 @@
     white-space: pre-line;
   }
   .chat-bubble.user {
-    background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(176, 38, 255, 0.2));
-    color: #00E5FF;
-    border: 1px solid rgba(0, 229, 255, 0.4);
-    box-shadow: 0 0 12px rgba(0, 229, 255, 0.1);
+    background: #333333;
+    color: #FFFFFF;
+    border: 1px solid #555555;
     border-bottom-right-radius: 4px;
     margin-left: auto;
   }
